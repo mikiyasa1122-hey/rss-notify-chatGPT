@@ -30,7 +30,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           RSS_FEED_URLS: ${{ secrets.RSS_FEED_URLS }}
           GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
-          MAX_ITEMS: 5
+          MAX_ITEMS: 20
         run: python main.py
 
       - name: Commit posted history
