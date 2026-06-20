@@ -1,6 +1,6 @@
 name: RSS Notify
 
-on:
+"on":
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
