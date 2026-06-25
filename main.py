@@ -190,12 +190,16 @@ def main():
 
         print(f"要約中: {entry['title']}")
 
-        gemini_summary = summarize_with_gemini(
-            client=client,
-            title=entry["title"],
-            article_text=article_text[:4000],
-            link=entry["link"],
-        )
+        try:
+            gemini_summary = summarize_with_gemini(
+                client=client,
+                title=entry["title"],
+                article_text=article_text[:4000],
+                link=entry["link"],
+            )
+        except Exception as e:
+            print(f"Gemini要約に失敗しました: {e}")
+            gemini_summary = "Geminiの混雑またはエラーにより、要約を取得できませんでした。記事リンクから確認してください。"
 
         post_to_discord(
             title=entry["title"],
